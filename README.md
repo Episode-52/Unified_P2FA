@@ -105,7 +105,7 @@ Unified_P2FA uses a mode-based CLI (`single` or `batch`) with global configurati
 | Argument | Description |
 | :--- | :--- |
 | `-l`, `--lang` | **[Required]** Target language: `en` (English) or `zh` (Mandarin). |
-| `--save-seg` | *[Optional]* Keep intermediate NLP-segmented text files (`_seg.txt`). By default, they are silently deleted. |
+| `--save-seg` | *[Optional]* Keep intermediate NLP-segmented text files (`_seg.txt`) for Mandarin. By default, they are silently deleted. |
 | `-np`, `--no-phone` | *[Optional]* Remove the **phone** tier from the final TextGrid. |
 | `-nw`, `--no-word` | *[Optional]* Remove the **word** tier from the final TextGrid. |
 
