@@ -146,6 +146,7 @@ python3 main.py -l en single p2fa_en/examples/ploppy.wav p2fa_en/examples/ploppy
 ```
 
 **Batch Alignment (English and Mandarin):**
+*(Important Note: Inside the input directory, the filenames of the `.wav` and `.txt` pairs must match exactly, e.g., `ploppy.wav` and `ploppy.txt`. Otherwise, the alignment operation will fail.)*
 ```bash
 python3 main.py -l en batch p2fa_en/examples -o output
 python3 main.py -l zh batch p2fa_zh/test -o output
