@@ -126,7 +126,7 @@ Unified_P2FA uses a mode-based CLI (`single` or `batch`) with global configurati
 ## 🚀 Usage 
 
 ### Command Syntax
-The tool is executed via `main.py` with either the `single` or `batch` mode. You can combine global flags (`-np`, `-nw`, `--save-seg`) as needed.
+The tool is executed via `main.py` with either the `single` or `batch` mode. You can combine global flags (`-np`, `-nw`, `--save-seg`) as needed.**Before executing any commands, it is recommended to navigate your terminal to the directory containing `main.py`. Otherwise, you must specify the relative or absolute path to `main.py` in your command.**
 
 ### 1. Standard Processing
 **Single Mode:**
