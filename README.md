@@ -70,4 +70,4 @@ python3 main.py -l en -np batch ./data -r -o ./results
 This project is built upon, combines, and heavily refactors the excellent work from the following original repositories. Sincere thanks to the original developers for their contributions to the open-source phonetics community:
 
 * **[p2fa_py3](https://github.com/jaekookang/p2fa_py3)** developed by **Jaekoo Kang** (Core Python 3 port of the original Penn Phonetics Lab Forced Aligner).
-* **[P2FA_Mandarin_py3](https://github.com/chenchenzi/P2FA_Mandarin_py3)** developed by **Chenzi Xu** (Mandarin acoustic models and script adaptation).
+* **[P2FA_Mandarin_py3](https://github.com/chenchenzi/P2FA_Mandarin_py3)** developed by **Chenzi Xu** and **Zhang Cong** (Mandarin acoustic models and script adaptation).
