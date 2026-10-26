@@ -172,6 +172,7 @@ python3 main.py -l en -nw batch p2fa_en/examples -o output
 
 This project is built upon, combines, and heavily refactors the excellent work from the following original repositories. Sincere thanks to the original developers for their contributions to the open-source phonetics community:
 
+* **[Penn Phonetics Lab Forced Aligner (P2FA)](https://babel.ling.upenn.edu/phonetics/old_website_2015/p2fa/index.html)** (The original toolkit and baseline framework developed by the Penn Phonetics Lab).
 * **[p2fa_py3](https://github.com/jaekookang/p2fa_py3)** developed by **Jaekoo Kang** (Core Python 3 port of the original Penn Phonetics Lab Forced Aligner).
 * **[P2FA_Mandarin_py3](https://github.com/chenchenzi/P2FA_Mandarin_py3)** developed by **Chenzi Xu** and **Zhang Cong** (Mandarin acoustic models and script adaptation).
 * **[Korean_FA](https://github.com/hyung8758/Korean_FA)** developed by **Hyungwon Yang** 
