@@ -1,0 +1,19 @@
+# Ignore Audio and TextGrid outputs
+*.wav
+*.TextGrid
+*_seg.txt
+
+# Ignore Output directory contents
+output/
+
+# Ignore Logs and missing words
+MissingWords
+MissingWords.log
+failed_log_*.txt
+p2fa_zh/log/
+p2fa_en/log/
+
+# Python cache and OS files
+__pycache__/
+*.pyc
+.DS_Store
