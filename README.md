@@ -19,6 +19,68 @@ The project has been heavily modularized for maintainability and scale:
 * `segmenter.py` — The NLP module, executing rule-based FMM segmentation and preserving special transcript tags (e.g., `{breath}`).
 * `utils.py` — Post-processing utilities, including the robust TextGrid tier filter (`filter_textgrid`).
 
+## ⚙️ Prerequisites & Installation
+
+To run Unified_P2FA successfully, you must install **HTK (Hidden Markov Model Toolkit)** and several system-level audio processing libraries.
+
+### 1. Install System Libraries (sox, ffmpeg, python3)
+The aligner relies on `sox` (and optionally `ffmpeg`) for downsampling and formatting audio on the fly. 
+
+**For Ubuntu / Debian:**
+```bash
+sudo apt-get update
+sudo apt-get install sox libsox-fmt-all ffmpeg python3 python3-pip build-essential gcc-multilib
+```
+**For macOS (using Homebrew):**
+```bash
+brew install sox ffmpeg python3
+```
+**For Arch Linux:**
+```bash
+sudo pacman -S sox ffmpeg python python-pip base-devel
+```
+
+### 2. Install HTK (Hidden Markov Model Toolkit)
+You need to download the HTK source code from [http://htk.eng.cam.ac.uk](http://htk.eng.cam.ac.uk/). (Note: You may need to register a free account to download),if the official website is not accessible, you can visit [https://github.com/a8568730/HTK_HTS](https://github.com/a8568730/HTK_HTS) (use the `htk` branch for HTK 3.4, and the `hts` branch for HTK 3.4.1).
+
+### 2.1 For Arch Linux
+```bash
+# Unzip HTK-3.4.tar.gz file in your current repository
+tar -xvf HTK-3.4.tar.gz
+cd htk
+
+# Compile HTK
+export CPPFLAGS=-UPHNALG
+./configure --disable-hlmtools --disable-hslab
+make clean    # necessary if you're not starting from scratch
+make all
+sudo make install # use "sudo" to make htk functions available for all users
+```
+
+### 2.2 For Ubuntu 22.04 / 24.04 LTS or later
+```bash
+# Assuming 64-bit platform, you may need 32-bit headers and libraries first
+sudo apt-get install gcc-multilib
+sudo chmod +x ./configure
+./configure --disable-hlmtools --disable-hslab
+make clean
+make all
+sudo make install
+
+# Quick test if HVite works
+HVite
+```
+### 2.3 For macOS (Apple Silicon / Intel)
+(Tested on macOS Ventura 13.3.1 Apple M1 Max & macOS Sierra)
+```bash
+# Add CPPFLAGS, LIBRARY_PATH
+export CPPFLAGS=-I/opt/X11/include
+export LIBRARY_PATH=/opt/X11/lib
+
+# If the above doesn't work, create a symlink:
+sudo ln -s /opt/X11/include/X11 /usr/local/include/X11
+```
+
 ## 🛠 Command Line Arguments
 
 Unified_P2FA uses a mode-based CLI (`single` or `batch`) with global configurations.
