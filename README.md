@@ -21,7 +21,7 @@ The project has been heavily modularized for maintainability and scale:
 
 ## ⚙️ Prerequisites & Installation
 
-To run Unified_P2FA successfully, you must install **HTK (Hidden Markov Model Toolkit)** and several system-level audio processing libraries(Note: Based on testing, this project is only compatible with HTK 3.4.)
+To run Unified_P2FA successfully, you must install **HTK (Hidden Markov Model Toolkit)** and several system-level audio processing libraries(Note: Based on testing, this project is only compatible with HTK 3.4)
 
 ### 1. Install System Libraries (sox, ffmpeg, python3)
 The aligner relies on `sox` (and optionally `ffmpeg`) for downsampling and formatting audio on the fly. 
@@ -152,7 +152,7 @@ python3 main.py -l en -nw batch ./data -o ./results
 python3 main.py -l en -nw batch p2fa_en/examples -o output
 ```
 
-## Acknowledgments
+## Acknowledgments and References
 
 This project is built upon, combines, and heavily refactors the excellent work from the following original repositories. Sincere thanks to the original developers for their contributions to the open-source phonetics community:
 
