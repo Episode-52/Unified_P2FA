@@ -10,8 +10,6 @@ An adaptive, dual-language (English & Mandarin) Forced Alignment CLI tool based 
 * **Custom Tier Filtering:** Extract only the data you need by stripping out `phone` or `word` tiers directly from the generated TextGrid.
 * **Clean OOV Logging:** Automatically aggregates Out-Of-Vocabulary words across batches into a centralized, deduplicated `MissingWords` log without cluttering the output directory.
 
----
-
 ## 🏗 Architecture
 
 The project has been heavily modularized for maintainability and scale:
@@ -20,8 +18,6 @@ The project has been heavily modularized for maintainability and scale:
 * `core.py` — The alignment engine, managing subprocess routing, batch loops, and path resolution.
 * `segmenter.py` — The NLP module, executing rule-based FMM segmentation and preserving special transcript tags (e.g., `{breath}`).
 * `utils.py` — Post-processing utilities, including the robust TextGrid tier filter (`filter_textgrid`).
-
----
 
 ## 🛠 Command Line Arguments
 
@@ -49,7 +45,6 @@ Unified_P2FA uses a mode-based CLI (`single` or `batch`) with global configurati
 | `txt` | **[Required]** Path to the input `.txt` transcript. |
 | `-o`, `--output` | **[Required]** Path and filename for the output `.TextGrid`. |
 
----
 
 ## 🚀 Usage Examples
 
@@ -63,7 +58,6 @@ Search through all subfolders in `./data`, align the English audio, drop the `ph
 ```bash
 python3 main.py -l en -np batch ./data -r -o ./results
 ```
----
 
 ## Acknowledgments
 
