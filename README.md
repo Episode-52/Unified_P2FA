@@ -129,7 +129,7 @@ Unified_P2FA uses a mode-based CLI (`single` or `batch`) with global configurati
 ### Command Syntax
 The tool is executed via `main.py` with either the `single` or `batch` mode. You can combine global flags (`-np`, `-nw`, `--save-seg`) as needed.
 
-### 1. Standard Batch Processing (Mandarin)
+### 1. Standard Processing
 **Single Mode:**
 ```bash
 python3 main.py -l [en|zh] [flags] single <audio.wav> <transcript.txt> -o <output.TextGrid>
