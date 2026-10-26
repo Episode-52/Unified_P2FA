@@ -74,11 +74,27 @@ HVite
 (Tested on macOS Ventura 13.3.1 Apple M1 Max & macOS Sierra)
 ```bash
 # Add CPPFLAGS, LIBRARY_PATH
-export CPPFLAGS=-I/opt/X11/include
-export LIBRARY_PATH=/opt/X11/lib
+$ export CPPFLAGS=-I/opt/X11/include
+$ export LIBRARY_PATH=/opt/X11/lib
 
-# If the above doesn't work, create a symlink:
-sudo ln -s /opt/X11/include/X11 /usr/local/include/X11
+# If the above doesn't work, do 
+$ ln -s /opt/X11/include/X11 /usr/local/include/X11
+
+# Replace line 21 (#include <malloc.h>) of HTKLib/strarr.c as below
+#   include <malloc/malloc.h> 
+
+# Replace line 1650 (labid != splabid) of HTKLib/HRec.c as below
+#   labpr != splabid
+# This step will prevent "ERROR [+8522] LatFromPaths: Align have dur<=0"
+# See: https://speechtechie.wordpress.com/2009/06/12/using-htk-3-4-1-on-mac-os-10-5/
+
+# Compile with options if necessary
+$ ./configure 
+$ make all
+$ sudo make install  # use "sudo" to make htk functions available for all users
+
+# Quick test if HVite works to confirm that htk functions are installed correctly
+$ HVite
 ```
 
 ## 🛠 Command Line Arguments
