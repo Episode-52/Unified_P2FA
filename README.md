@@ -21,7 +21,7 @@ The project has been heavily modularized for maintainability and scale:
 
 ## ⚙️ Prerequisites & Installation
 
-To run Unified_P2FA successfully, you must install **HTK (Hidden Markov Model Toolkit)** and several system-level audio processing libraries.
+To run Unified_P2FA successfully, you must install **HTK (Hidden Markov Model Toolkit)** and several system-level audio processing libraries(Note: Based on testing, this project is only compatible with HTK 3.4.)
 
 ### 1. Install System Libraries (sox, ffmpeg, python3)
 The aligner relies on `sox` (and optionally `ffmpeg`) for downsampling and formatting audio on the fly. 
@@ -127,19 +127,19 @@ python3 main.py -l [en|zh] [flags] batch <input_directory> [-r] -o <output_direc
 
 **Standard Single Alignment (English as Example):**
 ```bash
-python3 main.py --lang en single p2fa_en/examples/ploppy.wav p2fa_en/examples/ploppy.txt -o output/ploppy.TextGrid
+python3 main.py -l en single p2fa_en/examples/ploppy.wav p2fa_en/examples/ploppy.txt -o output/ploppy.TextGrid
 ```
 
 **Standard Batch Alignment (English and Mandarin):**
 ```bash
-python3 main.py --lang en batch p2fa_en/examples -o output
-python3 main.py --lang zh batch p2fa_zh/test -o output
+python3 main.py -l en batch p2fa_en/examples -o output
+python3 main.py -l zh batch p2fa_zh/test -o output
 ```
 
 **View Mandarin NLP Segmentation Results:**
 If you want to additionally check the word segmentation results of the transcripts before Chinese alignment, you can add the --save-seg flag:
 ```bash
-python3 main.py --lang zh --save-seg batch p2fa_zh/test -o output
+python3 main.py -l zh --save-seg batch p2fa_zh/test -o output
 ```
 
 ### 2. Recursive Batch with Tier Filtering (English)
