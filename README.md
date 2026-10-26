@@ -28,7 +28,6 @@ The aligner relies on `sox` (and optionally `ffmpeg`) for downsampling and forma
 
 **For Ubuntu / Debian:**
 ```bash
-sudo apt-get update
 sudo apt-get install sox libsox-fmt-all ffmpeg python3 python3-pip build-essential gcc-multilib
 ```
 **For macOS (using Homebrew):**
@@ -141,25 +140,25 @@ python3 main.py -l [en|zh] [flags] batch <input_directory> [-r] -o <output_direc
 ```
 ### Examples
 
-**Standard Single Alignment (English as Example):**
+**Single Alignment (English as Example):**
 ```bash
 python3 main.py -l en single p2fa_en/examples/ploppy.wav p2fa_en/examples/ploppy.txt -o output/ploppy.TextGrid
 ```
 
-**Standard Batch Alignment (English and Mandarin):**
+**Batch Alignment (English and Mandarin):**
 ```bash
 python3 main.py -l en batch p2fa_en/examples -o output
 python3 main.py -l zh batch p2fa_zh/test -o output
 ```
 
 **View Mandarin NLP Segmentation Results:**
-If you want to additionally check the word segmentation results of the transcripts before Chinese alignment, you can add the --save-seg flag:
+If you want to additionally check the word segmentation results of the transcripts before Mandarin alignment, you can add the --save-seg flag:
 ```bash
 python3 main.py -l zh --save-seg batch p2fa_zh/test -o output
 ```
 
-### 2. Recursive Batch with Tier Filtering (English)
-If you want to customize the output data, you can strip out specific tiers directly from the generated TextGrid. You can use the `-np` flag to remove the `phone` tier, or the `-nw` flag to remove the `word` tier. For example, to align the English audio and drop the `word` tier (keeping only phones):
+### 2. Recursive Batch with Tier Filtering (English as Example)
+If you want to customize the output data, you can strip out specific tiers directly from the generated TextGrid. You can use the `-np` flag to remove the `phone` tier, or the `-nw` flag to remove the `word` tier. For example, to align the audio and drop the `word` tier (keeping only phones):
 ```bash
 python3 main.py -l en -nw batch ./data -o ./results
 ```
