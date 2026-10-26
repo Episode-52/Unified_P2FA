@@ -124,14 +124,18 @@ python3 main.py -l [en|zh] [flags] single <audio.wav> <transcript.txt> -o <outpu
 python3 main.py -l [en|zh] [flags] batch <input_directory> [-r] -o <output_directory>
 ```
 ### Examples
-**Standard Batch Alignment (Mandarin):**
+
+**Standard Single Alignment (English as Example):**
 ```bash
-python3 main.py --lang zh batch p2fa_zh/test -o output
+python3 main.py --lang en single p2fa_en/examples/ploppy.wav p2fa_en/examples/ploppy.txt -o output/ploppy.TextGrid
 ```
-**Standard Batch Alignment (English):**
+
+**Standard Batch Alignment (English and Mandarin):**
 ```bash
 python3 main.py --lang en batch p2fa_en/examples -o output
+python3 main.py --lang zh batch p2fa_zh/test -o output
 ```
+
 **View Mandarin NLP Segmentation Results:**
 If you want to additionally check the word segmentation results of the transcripts before Chinese alignment, you can add the --save-seg flag:
 ```bash
@@ -154,3 +158,4 @@ This project is built upon, combines, and heavily refactors the excellent work f
 
 * **[p2fa_py3](https://github.com/jaekookang/p2fa_py3)** developed by **Jaekoo Kang** (Core Python 3 port of the original Penn Phonetics Lab Forced Aligner).
 * **[P2FA_Mandarin_py3](https://github.com/chenchenzi/P2FA_Mandarin_py3)** developed by **Chenzi Xu** and **Zhang Cong** (Mandarin acoustic models and script adaptation).
+* **[Korean_FA](https://github.com/hyung8758/Korean_FA)** developed by **Hyungwon Yang** 
