@@ -108,17 +108,44 @@ Unified_P2FA uses a mode-based CLI (`single` or `batch`) with global configurati
 | `-o`, `--output` | **[Required]** Path and filename for the output `.TextGrid`. |
 
 
-## 🚀 Usage Examples
+## 🚀 Usage 
+
+### Command Syntax
+The tool is executed via `main.py` with either the `single` or `batch` mode. You can combine global flags (`-np`, `-nw`, `--save-seg`) as needed.
 
 ### 1. Standard Batch Processing (Mandarin)
-Process all audio-transcript pairs in `p2fa_zh/test` and export TextGrids to the `output` folder:
+**Single Mode:**
 ```bash
-python3 main.py -l zh batch p2fa_zh/test -o output
+python3 main.py -l [en|zh] [flags] single <audio.wav> <transcript.txt> -o <output.TextGrid>
 ```
-### 2. Recursive Batch with Tier Filtering (English)
-Search through all subfolders in `./data`, align the English audio, drop the `phone` tier (keeping only words), and output everything flatly into `./results`:
+
+**Batch Mode:**
 ```bash
-python3 main.py -l en -np batch ./data -r -o ./results
+python3 main.py -l [en|zh] [flags] batch <input_directory> [-r] -o <output_directory>
+```
+### Examples
+**Standard Batch Alignment (Mandarin):**
+```bash
+python3 main.py --lang zh batch p2fa_zh/test -o output
+```
+**Standard Batch Alignment (English):**
+```bash
+python3 main.py --lang en batch p2fa_en/examples -o output
+```
+**View Mandarin NLP Segmentation Results:**
+If you want to additionally check the word segmentation results of the transcripts before Chinese alignment, you can add the --save-seg flag:
+```bash
+python3 main.py --lang zh --save-seg batch p2fa_zh/test -o output
+```
+
+### 2. Recursive Batch with Tier Filtering (English)
+If you want to customize the output data, you can strip out specific tiers directly from the generated TextGrid. You can use the `-np` flag to remove the `phone` tier, or the `-nw` flag to remove the `word` tier. For example, to align the English audio and drop the `word` tier (keeping only phones):
+```bash
+python3 main.py -l en -nw batch ./data -o ./results
+```
+### Examples
+```bash
+python3 main.py -l en -nw batch p2fa_en/examples -o output
 ```
 
 ## Acknowledgments
